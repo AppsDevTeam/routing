@@ -46,9 +46,11 @@ class Route extends \Nette\Application\Routers\Route
 
 			// removes trailing slash
 			if (
-				$url === $params['locale'] . '/' // en/
-				|| $url === '/' . $params['locale'] . '/' // /en/
-				|| Strings::endsWith($url, '/' . $params['locale'] . '/') // https://www.example.com/en/
+				isset($params['locale']) && (
+					$url === $params['locale'] . '/' // en/
+					|| $url === '/' . $params['locale'] . '/' // /en/
+					|| Strings::endsWith($url, '/' . $params['locale'] . '/') // https://www.example.com/en/
+				)
 			) {
 				$url = rtrim($url, '/');
 			}
