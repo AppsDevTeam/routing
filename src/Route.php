@@ -49,7 +49,7 @@ class Route extends \Nette\Application\Routers\Route
 				isset($params['locale']) && (
 					$url === $params['locale'] . '/' // en/
 					|| $url === '/' . $params['locale'] . '/' // /en/
-					|| Strings::endsWith($url, '/' . $params['locale'] . '/') // https://www.example.com/en/
+					|| str_ends_with($url, '/' . $params['locale'] . '/') // https://www.example.com/en/
 				)
 			) {
 				$url = rtrim($url, '/');

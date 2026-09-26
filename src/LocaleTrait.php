@@ -2,11 +2,12 @@
 
 namespace ADT\Routing;
 
+use Nette\Application\Attributes\Persistent;
 use Nette\Application\UI\Presenter;
 
 trait LocaleTrait
 {
-	/** @persistent */
+	#[Persistent]
 	public ?string $locale = null;
 
 	public function injectLocale(Presenter $presenter, TranslatorInterface $translator)
